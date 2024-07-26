@@ -70,8 +70,6 @@ export class GeminiDiscussionClient extends DiscussionClient<
 
     const model = this.client.getGenerativeModel({
       model: this.modelName,
-      generationConfig: {responseMimeType: "application/json"}
-
     });
 
     const chatSession = model.startChat({
@@ -82,6 +80,7 @@ export class GeminiDiscussionClient extends DiscussionClient<
         temperature: options.temperature,
         maxOutputTokens: options.maxOutputTokens,
         candidateCount: options.candidateCount,
+        responseMimeType: 'application/json',
       },
       safetySettings: options.safetySettings,
     });
